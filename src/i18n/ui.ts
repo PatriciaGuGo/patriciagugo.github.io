@@ -6,7 +6,7 @@ export const defaultLang = 'es';
 
 export const ui = {
 	es: {
-		'layout.title': 'Porfolio de Patricia Guillén - Psicóloga General Sanitária',
+		'layout.title': 'Porfolio de Patricia Guillén - Psicóloga General Sanitaria',
 		'layout.description':
 			'Contrata a Patricia si necesitas acompañamiento psciologico tanto para menores como adultos. Psicóloga General Sanitária.',
 		'nav.home': 'Home',
@@ -19,7 +19,7 @@ export const ui = {
 		'personTop.badgeFreelance': 'Disponible como Freelance',
 		'personTop.title': 'Hey, soy Patricia',
 		'personTop.bio':
-			'+3 años impartiendo terapia psicologica y +4 años en reducaciones. <strong>Psicóloga General Sanitária</strong> de Barcelona, España 🇪🇸. Especializado psicologia clinica y reducaciones',
+			'+3 años impartiendo terapia psicologica y +4 años en reducaciones. <strong>Psicóloga General Sanitária</strong> de Barcelona, España 🇪🇸. Especializado psicología clínica y reeducaciones',
 		'personTop.mail': 'Contáctame',
 		'personTop.linkedin': 'LinkedIn',
 		'exp.title': 'Experiencia laboral',
