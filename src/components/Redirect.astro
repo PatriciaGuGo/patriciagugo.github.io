@@ -2,6 +2,6 @@
 const { to } = Astro.props;
 ---
 
-<script>
-  window.location.href = `{to}`;
+<script is:inline define:vars={{ to }}>
+	window.location.href = to;
 </script>
