@@ -1,0 +1,72 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import AboutMe from '@/components/sections/AboutMe.astro';
+import Briefcase from '@/components/icons/Briefcase.astro';
+import CodeIcon from '@/components/icons/Code.astro';
+import Experience from '@/components/sections/Experience.astro';
+import ProfileCheck from '@/components/icons/ProfileCheck.astro';
+import Projects from '@/components/sections/Projects.astro';
+import SectionContainer from '@/components/sections/SectionContainer.astro';
+import PersonTop from '@/components/sections/PersonTop.astro';
+import { getLangFromUrl, useTranslations, type SupportedLang } from '@/i18n/utils';
+import Trayectoria from '@/components/sections/Trayectoria.astro';
+
+type tLang = (str: any) => any;
+const lang = (Astro.params.lang as SupportedLang) || 'es';
+const t: tLang = useTranslations(lang);
+
+export async function getStaticPaths() {
+	return [{ params: { lang: 'es' } }, { params: { lang: 'en' } }];
+}
+---
+
+<Layout title={t('layout.title')} description={t('layout.description')}>
+	<main class="px-4">
+		<SectionContainer class="py-16 md:py-36">
+			<PersonTop />
+		</SectionContainer>
+	</main>
+	<div class="space-y-24">
+		<SectionContainer id="experiencia">
+			<h2
+				class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+			>
+				<Briefcase class="size-8" />
+				{t('exp.title')}
+			</h2>
+			<Experience />
+		</SectionContainer>
+
+		<SectionContainer id="proyectos">
+			<h2
+				class="flex items-center mb-6 text-3xl font-semibold gap-x-3 text-black/80 dark:text-white"
+			>
+				<CodeIcon class="size-7" />
+				{t('projects.title')}
+			</h2>
+			<Projects />
+		</SectionContainer>
+
+		<SectionContainer id="sobre-mi">
+			<h2
+				class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+			>
+				<ProfileCheck class="size-8" />
+				{t('about.title')}
+			</h2>
+			<AboutMe />
+		</SectionContainer>
+
+		<!--
+		<SectionContainer id="trayectoria">
+			<h2
+				class="flex items-center mb-6 text-3xl font-semibold gap-x-8 text-black/80 dark:text-white"
+			>
+				<ProfileCheck class="size-8" />
+				{t('about.trajectory')}
+			</h2>
+			<Trayectoria />
+		</SectionContainer>
+		-->
+	</div>
+</Layout>

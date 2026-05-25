@@ -1,2 +1,3 @@
 # patriciagugo.github.io
-Portfolio
+
+npm run start

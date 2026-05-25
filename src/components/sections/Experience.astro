@@ -1,0 +1,27 @@
+---
+import ExperienceItem from '@/components/items/ExperienceItem.astro';
+import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+type tLang = (str: any) => any;
+const lang = getLangFromUrl(Astro.url);
+const t: tLang = useTranslations(lang);
+type Experience = {
+	title: string;
+	company: string;
+	date: string;
+	description: string;
+	tasks: string[];
+	certifications?: string[];
+	link: string;
+};
+const EXP: Experience[] = t('exp');
+---
+
+<ol class="relative mt-16">
+	{
+		EXP.map((experience) => (
+			<li class="">
+				<ExperienceItem {...experience} />
+			</li>
+		))
+	}
+</ol>
