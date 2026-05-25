@@ -6,20 +6,20 @@ export const defaultLang = 'es';
 
 export const ui = {
 	es: {
-		'layout.title': 'Porfolio de Patricia Guillén - Psicóloga General Sanitaria',
+		'layout.title': 'Portfolio de Patricia Guillén - Psicóloga General Sanitaria',
 		'layout.description':
-			'Contrata a Patricia si necesitas acompañamiento psciologico tanto para menores como adultos. Psicóloga General Sanitária.',
+			'Contrata a Patricia si necesitas acompañamiento psicológico tanto para menores como adultos. Psicóloga General Sanitaria.',
 		'nav.home': 'Home',
 		'nav.experience': 'Experiencia',
 		'nav.projects': 'Proyectos',
 		'nav.about': 'Sobre mí',
 		'nav.trajectory': `Trayectoria`,
 		'nav.contact': 'Contacto',
-		'personTop.badgeWork': 'Trabajando Actualmente',
-		'personTop.badgeFreelance': 'Disponible como Freelance',
+		'personTop.badgeWork': 'Trabajando actualmente',
+		'personTop.badgeFreelance': 'Disponible como freelance',
 		'personTop.title': 'Hey, soy Patricia',
 		'personTop.bio':
-			'+3 años impartiendo terapia psicologica y +4 años en reducaciones. <strong>Psicóloga General Sanitária</strong> de Barcelona, España 🇪🇸. Especializado psicología clínica y reeducaciones',
+			'+3 años impartiendo terapia psicológica y +4 años en reeducaciones. <strong>Psicóloga General Sanitaria</strong> de Barcelona, España 🇪🇸. Especializada en psicología clínica y reeducación',
 		'personTop.mail': 'Contáctame',
 		'personTop.linkedin': 'LinkedIn',
 		'exp.title': 'Experiencia laboral',
@@ -74,12 +74,12 @@ export const ui = {
 			},
 			{
 				title: 'Psicóloga (rotaciones de prácticas)',
-				date: 'Abr 2023-Junio 2024',
-				company: 'Consorcio Sanitario Integral (CSI) ',
-				description: 'Hospital Moisès Broggi-Hospital General de Hospitalet',
+				date: 'Abr 2023 - Junio 2024',
+				company: 'Consorcio Sanitario Integral (CSI)',
+				description: 'Hospital Moisès Broggi - Hospital General de Hospitalet',
 				tasks: [
 					'Evaluación psicológica (entrevistas y tests) y redacción de informes.',
-					'Definición de objetivos y planificación de tratamientos cognitivos-conductuales.',
+					'Definición de objetivos y planificación de tratamientos cognitivo-conductuales.',
 					'Conducción de sesiones de tratamiento psicológico individual.',
 					'Gestión de un proyecto de investigación psicosocial para población vulnerable.',
 				],
@@ -87,11 +87,11 @@ export const ui = {
 			},
 			{
 				title: 'Psicóloga (rotaciones de prácticas)',
-				date: 'Abr 2023-Junio 2024',
-				company: 'Consorcio Sanitario Integral (CSI) ',
+				date: 'Abr 2023 - Junio 2024',
+				company: 'Consorcio Sanitario Integral (CSI)',
 				description: 'Residencia Collblanc y Francesc Padilla',
 				tasks: [
-					'Participación en la evaluación (entrevistas y test) de residentes y familiares.',
+					'Participación en la evaluación (entrevistas y tests) de residentes y familiares.',
 					'Colaboración en el diseño de actividades de estimulación cognitiva.',
 					'Dinamización de talleres (gimnasia, musicoterapia y lectura) para población geriátrica.',
 					'Coordinación con otros profesionales en la creación de PIAIs.',
@@ -100,34 +100,34 @@ export const ui = {
 			},
 			{
 				title: 'Psicóloga (rotaciones de prácticas)',
-				date: 'Abr 2023-Junio 2024',
-				company: 'Consorcio Sanitario Integral (CSI) ',
+				date: 'Abr 2023 - Junio 2024',
+				company: 'Consorcio Sanitario Integral (CSI)',
 				description: 'Hospital Sociosanitario de Hospitalet',
 				tasks: [
-					'Apoyo psicológico en cuidados paliativos (pacientes, fam. y profesionales).',
+					'Apoyo psicológico en cuidados paliativos (pacientes, familiares y profesionales).',
 					'Observación de sesiones de terapia grupal en pacientes (ictus y amputados).',
 				],
 				tags: [''],
 			},
 			{
 				title: 'Psicóloga (rotaciones de prácticas)',
-				date: 'Abr 2023-Junio 2024',
-				company: 'Consorcio Sanitario Integral (CSI) ',
+				date: 'Abr 2023 - Junio 2024',
+				company: 'Consorcio Sanitario Integral (CSI)',
 				description: 'SEVAD (Servicio de Valoración de la Dependencia)',
 				tasks: [
 					'Asistencia a la valoración a domicilio del interesado y discusión de los casos.',
-					'Colaboración en la elaboración del informe de la dependencia.',
+					'Colaboración en la elaboración del informe de dependencia.',
 				],
 				tags: [''],
 			},
 			{
 				title: 'Psicóloga (prácticas)',
 				date: 'Octubre 2019 - Marzo 2020',
-				company: 'Tot Teràpia ',
+				company: 'Tot Teràpia',
 				description: '',
 				tasks: [
 					'Administración y corrección de tests dirigidos a menores.',
-					'Diseño de actividades para fomentar las HHSS en niños TEA.',
+					'Diseño de actividades para fomentar las HHSS en niños con TEA.',
 					'Conducción y participación en sesiones individuales y familiares con niños.',
 					'Co-terapeuta en sesiones de terapia grupal infantil-juvenil.',
 					'Apoyo en sesiones de otros profesionales (logopedas y terapeutas ocupacionales).',
@@ -135,7 +135,7 @@ export const ui = {
 				tags: [''],
 			},
 			{
-				title: 'Responsable de Infantes vulnerables (derivados de Servicios Sociales)',
+				title: 'Responsable de infantes vulnerables (derivados de Servicios Sociales)',
 				date: '2024',
 				company: 'Cruz Roja',
 				description: '',
@@ -146,7 +146,7 @@ export const ui = {
 				tags: [''],
 			},
 			{
-				title: 'Acompañante de Personas que Habían Vivido en la Calle',
+				title: 'Acompañante de personas que habían vivido en la calle',
 				date: '2023',
 				company: 'Arrels Fundación',
 				description: '',
@@ -157,33 +157,33 @@ export const ui = {
 				tags: [''],
 			},
 			{
-				title: 'Acompañante de Personas con Discapacidad Intelectual',
+				title: 'Acompañante de personas con discapacidad intelectual',
 				date: '2017-2019',
 				company: 'Best Buddies',
 				description: '',
 				tasks: [
-					'Acompañamiento emocional via chat de jóvenes con DI.',
+					'Acompañamiento emocional vía chat de jóvenes con DI.',
 					'Generación de recursos para favorecer habilidades socioemocionales.',
 				],
 				tags: [''],
 			},
 			{
-				title: 'Asistenta de Monitor de Psicodrama',
+				title: 'Asistente de monitor de psicodrama',
 				date: '2018-2019',
 				company: 'ACFAMES (Asoc. Cat. Familiares y Enfermos de Esquizofrenia)',
 				description: '',
 				tasks: [
 					'Dinamización de actividades teatrales para la expresión emocional.',
-					'Promoción competencias socioemocionales y comunicativas.',
+					'Promoción de competencias socioemocionales y comunicativas.',
 				],
 				tags: [''],
 			},
 		],
 		projects: [
 			{
-				title: 'Sintomatología ansiosa y depresiva y relación de pareja en personas con el virus de la inmunodeficiencia humana (vih)',
+				title: 'Sintomatología ansiosa y depresiva y relación de pareja en personas con el virus de la inmunodeficiencia humana (VIH)',
 				description:
-					'La investigación analiza la relación entre la sintomatología ansiosa y depresiva y los estilos de relación de pareja en personas que viven con el Virus de la Inmunodeficiencia Humana (VIH). Los resultados muestran correlaciones y regresiones significativas, entre las dimensiones de pareja y la sintomatología ansiosa y depresiva.',
+					'La investigación analiza la relación entre la sintomatología ansiosa y depresiva y los estilos de relación de pareja en personas que viven con el virus de la inmunodeficiencia humana (VIH). Los resultados muestran correlaciones y regresiones significativas entre las dimensiones de pareja y la sintomatología ansiosa y depresiva.',
 				link: '',
 				github: '',
 				image: '/projects/ProjectoSintomatologiaEs.webp',
