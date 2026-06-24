@@ -31,6 +31,20 @@ export const ui = {
 		exp: [
 			{
 				title: 'Psicóloga',
+				date: 'Mayo 2026 - Actualmente',
+				company: 'We are Psycho S.L.',
+				description: '',
+				tasks: [
+					'Tratamiento psicológico individual online en adolescentes.',
+					'Atención psicológica especializada en TEA con enfoque en HHSS y comunicación.',
+					'Entrenamiento en autorregulación emocional y resolución de problemas.',
+					'Evaluación e intervención en conductas suicidas y autolesivas, trauma y abuso sexual infantil (ASI).',
+					'Abordaje clínico en gestión de la ira, impulsividad y conductas disruptivas.',
+				],
+				tags: ['TEA', 'HHSS', 'ASI', 'CONDUCTA_SUICIDA', 'AUTOLESIONES'],
+			},
+			{
+				title: 'Psicóloga',
 				date: 'Enero 2025 - Actualmente',
 				company: 'Centro Gyra',
 				description: '',
@@ -228,6 +242,20 @@ export const ui = {
 		'about.trajectory': `Career Path`,
 		'footer.rights': 'Almost all rights reserved',
 		exp: [
+			{
+				title: 'Psychologist',
+				date: 'May 2026 - Present',
+				company: 'We are Psycho S.L.',
+				description: '',
+				tasks: [
+					'Individual online psychological therapy for adolescents.',
+					'Specialized psychological attention in ASD with a focus on social skills and communication.',
+					'Training in emotional regulation and problem-solving.',
+					'Evaluation and intervention in suicidal and self-harming behaviors, trauma and child sexual abuse (CSA).',
+					'Clinical approach in anger management, impulsivity and disruptive behaviors.',
+				],
+				tags: ['ASD', 'SOCIAL_SKILLS', 'CSA', 'SUICIDAL_BEHAVIOR', 'SELF_HARM'],
+			},
 			{
 				title: 'Psychologist',
 				date: 'January 2025 - Present',
