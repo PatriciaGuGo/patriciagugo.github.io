@@ -2,36 +2,80 @@
 import '@/styles/globals.css';
 import Footer from '@/components/sections/Footer.astro';
 import Header from '../components/sections/Header.astro';
-
+import Analytics from '@/components/Analytics.astro';
+import ThemeScript from '@/components/ThemeScript.astro';
 import { ClientRouter } from 'astro:transitions';
+import { FULL_NAME, ROLE, LINKEDIN_URL } from '@/consts';
 
 interface Props {
 	title: string;
 	description: string;
+	lang?: string;
+	ogTitle?: string;
+	ogDescription?: string;
 }
 
-const { description, title } = Astro.props;
+const { description, title, lang = 'es', ogTitle, ogDescription } = Astro.props;
+const ogT = ogTitle ?? title;
+const ogD = ogDescription ?? description;
+
+const site = Astro.site;
+const canonical = site ? new URL(Astro.url.pathname, site).href : Astro.url.pathname;
+const urlEn = site ? new URL('/en/', site).href : '/en/';
+const urlEs = site ? new URL('/es/', site).href : '/es/';
+const ogImage = site ? new URL('/patricia.jpeg', site).href : '/patricia.jpeg';
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: FULL_NAME,
+	jobTitle: ROLE,
+	url: site ? site.href : undefined,
+	image: ogImage,
+	sameAs: [LINKEDIN_URL],
+	description: ogD,
+};
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<ThemeScript />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Canonical + hreflang (sitio bilingüe) -->
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="es" href={urlEs} />
+		<link rel="alternate" hreflang="en" href={urlEn} />
+		<link rel="alternate" hreflang="x-default" href={urlEs} />
+
+		<!-- Open Graph / social cards -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={FULL_NAME} />
+		<meta property="og:locale" content={lang === 'en' ? 'en_US' : 'es_ES'} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:title" content={ogT} />
+		<meta property="og:description" content={ogD} />
+		<meta property="og:image" content={ogImage} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={ogT} />
+		<meta name="twitter:description" content={ogD} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+		<Analytics />
 		<ClientRouter />
 	</head>
 
-	<body class="relative text-black dark:text-white">
-		<div
-			class="absolute top-0 bottom-0 z-[-2] min-h-screen w-full bg-gray-50 dark:bg-gray-950
-      bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,216,255,0.5),rgba(255,255,255,0.9))]
-      dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-		>
-		</div>
+	<body class="relative text-ink dark:text-[#e9edf3]">
+		<div class="af-page-bg absolute top-0 bottom-0 z-[-2] min-h-screen w-full"></div>
 		<Header />
 		<slot />
 		<Footer />
@@ -46,7 +90,6 @@ const { description, title } = Astro.props;
 			}
 
 			body {
-				color: rgba(17, 17, 17, 0.9);
 				display: flex;
 				flex-direction: column;
 				min-height: 100vh;
@@ -56,58 +99,6 @@ const { description, title } = Astro.props;
 			@media (prefers-reduced-motion: reduce) {
 				html {
 					scroll-behavior: auto;
-				}
-			}
-
-			@media (prefers-color-scheme: dark) {
-				body {
-					color: rgba(255, 255, 255, 0.9);
-				}
-			}
-
-			#header-nav {
-				animation: blur linear both 0.5s;
-				animation-timeline: scroll();
-				animation-range: 0 500px;
-			}
-
-			@keyframes blur {
-				to {
-					backdrop-filter: blur(20px);
-					border-width: 1px;
-					border-color: rgba(0, 0, 0);
-					padding: 0.25rem 0.75rem;
-					display: flex;
-					flex-direction: row;
-					align-items: center;
-					background-color: rgb(229, 229, 229);
-					border-radius: 9999px;
-				}
-			}
-
-			@media (prefers-color-scheme: dark) {
-				@keyframes blur {
-					from {
-						border: 0px;
-					}
-					to {
-						box-shadow:
-							0px 5px 50px -5px rgba(0, 0, 0, 0.1),
-							0px 0px 0 1px rgba(0, 0, 0, 0.3);
-						background: rgba(0, 0, 0, 0.3);
-						backdrop-filter: blur(20px);
-						border-width: 1px;
-						border-color: rgba(0, 0, 0);
-						padding-left: 0.75rem;
-						padding-right: 0.75rem;
-						padding-top: 0.25rem;
-						padding-bottom: 0.25rem;
-						display: flex;
-						flex-direction: row;
-						align-items: center;
-						background-color: rgba(0, 0, 0, 0.3);
-						border-radius: 9999px;
-					}
 				}
 			}
 		</style>

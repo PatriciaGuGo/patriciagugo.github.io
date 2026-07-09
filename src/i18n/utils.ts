@@ -1,8 +1,6 @@
 import { ui, defaultLang } from "./ui";
 
-export const showDefaultLang = false;
-
-// Define un tipo para los idiomas soportados
+// Idiomas soportados
 export type SupportedLang = "es" | "en";
 
 export function getLangFromUrl(url: URL): SupportedLang {
@@ -11,14 +9,12 @@ export function getLangFromUrl(url: URL): SupportedLang {
   return defaultLang;
 }
 
+// t(key) devuelve el tipo real del valor de esa clave (string, array de
+// experiencia/proyectos, etc.), sin `any`: la KEY y el valor quedan tipados.
 export function useTranslations(lang: SupportedLang) {
-  return function t(key: keyof (typeof ui)[typeof defaultLang]) {
-    return ui[lang][key] || ui[defaultLang][key];
-  };
-}
-
-export function useTranslatedPath(lang: SupportedLang) {
-  return function translatePath(path: string, l: string = lang) {
-    return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`;
+  return function t<K extends keyof (typeof ui)[typeof defaultLang]>(
+    key: K
+  ): (typeof ui)[typeof defaultLang][K] {
+    return (ui[lang][key] ?? ui[defaultLang][key]) as (typeof ui)[typeof defaultLang][K];
   };
 }

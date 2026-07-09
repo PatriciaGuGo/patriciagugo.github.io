@@ -1,0 +1,23 @@
+---
+// Pills de etiquetas (áreas, técnicas, temas…) en texto, con el estilo de marca.
+// Versión solo-texto: este porfolio no usa iconos de tecnología.
+interface Props {
+	tags?: readonly string[];
+	class?: string;
+}
+const { tags = [], class: cls = 'mt-4' } = Astro.props;
+const pill =
+	'rounded-full text-xs font-medium py-1 px-2.5 border border-accent/25 bg-accent-soft dark:bg-accent/10 text-accent dark:text-accent-hot';
+---
+
+{
+	tags.length > 0 && (
+		<ul class:list={['flex flex-wrap gap-2', cls]}>
+			{tags.map((token) => (
+				<li>
+					<span class={pill}>{token}</span>
+				</li>
+			))}
+		</ul>
+	)
+}

@@ -2,8 +2,15 @@
 import SunIcon from "../icons/Sun.astro";
 import MoonIcon from "../icons/Moon.astro";
 import SystemIcon from "../icons/System.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/utils";
 
-const THEMES = ["Light", "Dark", "System"];
+const t = useTranslations(getLangFromUrl(Astro.url));
+// value = valor canónico que se guarda (no se traduce); label = texto visible.
+const THEMES = [
+  { value: "light", label: t("theme.light") },
+  { value: "dark", label: t("theme.dark") },
+  { value: "system", label: t("theme.system") },
+];
 ---
 
 <div class="relative mx-1">
@@ -11,7 +18,7 @@ const THEMES = ["Light", "Dark", "System"];
     id="theme-toggle-btn"
     class="appearance-none border-none flex hover:scale-125 transition"
   >
-    <span class="sr-only">Elige el tema</span>
+    <span class="sr-only">{t("theme.label")}</span>
     <SunIcon id="light" class="theme-toggle-icon size-5 transition-all" />
     <MoonIcon
       id="dark"
@@ -29,8 +36,11 @@ const THEMES = ["Light", "Dark", "System"];
     <ul>
       {
         THEMES.map((theme) => (
-          <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">
-            {theme}
+          <li
+            class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm"
+            data-theme={theme.value}
+          >
+            {theme.label}
           </li>
         ))
       }
@@ -68,9 +78,9 @@ const THEMES = ["Light", "Dark", "System"];
 
     const getThemePreference = () => {
       if (typeof localStorage !== "undefined") {
-        return localStorage.getItem("theme") ?? "system";
+        return localStorage.getItem("theme") ?? "dark"; // dark por defecto
       }
-      return matchMedia.matches ? "dark" : "light";
+      return "dark";
     };
     const updateIcon = (themePreference) => {
       document.querySelectorAll(".theme-toggle-icon").forEach((element) => {
@@ -101,7 +111,8 @@ const THEMES = ["Light", "Dark", "System"];
       });
     document.querySelectorAll(".themes-menu-option").forEach((element) => {
       element.addEventListener("click", (e) => {
-        localStorage.setItem("theme", e.target.innerText.toLowerCase().trim());
+        // Guarda el valor canónico (data-theme), no el texto traducido.
+        localStorage.setItem("theme", e.currentTarget.dataset.theme);
         updateTheme();
       });
     });

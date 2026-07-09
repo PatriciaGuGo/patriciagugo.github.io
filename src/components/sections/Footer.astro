@@ -1,38 +1,29 @@
 ---
 import { getLangFromUrl, useTranslations } from '@/i18n/utils';
+import { CONTACT_EMAIL, LINKEDIN_URL, FULL_NAME } from '@/consts';
+import LinkedInIcon from '@/components/icons/LinkedInIcon.astro';
+import MailIcon from '@/components/icons/MailIcon.astro';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 ---
 
-<footer
-	class="opacity-80 m-4 mt-16 w-full mx-auto container lg:max-w-4xl md:max-w-2xl mb-10 flex justify-center"
->
-	<div
-		class="rounded-lg w-full max-w-screen-xl mx-auto md:flex md:items-center md:justify-between py-4"
-	>
-		<span class="text-sm sm:text-center text-zinc-800/90 dark:text-zinc-200/90">
-			© {currentYear}
-			<a href="https://patriciaguillengonzalez.dev/" class="hover:underline">
-				patriciaguillengonzalez
+<footer class="w-full max-w-4xl mx-auto px-4 py-10 mt-4">
+	<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+		<div class="flex items-center gap-2.5">
+			<svg viewBox="0 0 64 64" class="w-6 h-6" aria-hidden="true">
+				<rect x="4" y="4" width="56" height="56" rx="16" fill="none" class="stroke-accent dark:stroke-accent-hot" stroke-width="5"></rect>
+				<text x="32" y="42" text-anchor="middle" class="fill-steel dark:fill-steel-light" font-family="ui-monospace, monospace" font-size="24" font-weight="700">PG</text>
+			</svg>
+			<span class="text-sm text-ink-soft dark:text-[#9aa5b4]">© {currentYear} {FULL_NAME} · {t('footer.rights')}</span>
+		</div>
+		<div class="flex items-center gap-4">
+			<a href={LINKEDIN_URL} target="_blank" rel="noopener" aria-label="LinkedIn" class="text-ink-soft dark:text-[#9aa5b4] hover:text-accent dark:hover:text-accent-hot transition">
+				<LinkedInIcon class="size-5" />
 			</a>
-			{t('footer.rights')}
-		</span>
-		<ul class="flex flex-wrap items-center mt-3 text-sm font-medium dark:text-white/90 sm:mt-0">
-			<li>
-				<a href="/" class="hover:underline me-4 md:me-6">
-					{t('nav.home')}
-				</a>
-			</li>
-			<li>
-				<a
-					id="contacto"
-					href="mailto:pat.guillengonzalez@gmail.com"
-					class="hover:underline"
-				>
-					{t('nav.contact')}
-				</a>
-			</li>
-		</ul>
+			<a href={`mailto:${CONTACT_EMAIL}`} aria-label="Email" class="text-ink-soft dark:text-[#9aa5b4] hover:text-accent dark:hover:text-accent-hot transition">
+				<MailIcon class="size-5" />
+			</a>
+		</div>
 	</div>
 </footer>
